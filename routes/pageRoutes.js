@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const PageConnection = require('../models/PageConnection');
+const PageConnection = require('../models/pageConnection');
 
+// adding a page
 router.post('/page/add', async (req, res) => {
     const { userId, pageId, pageName, accessToken } = req.body;
     try {
@@ -12,6 +13,7 @@ router.post('/page/add', async (req, res) => {
     }
 });
 
+// deleting a page
 router.delete('/page/delete/:id', async (req, res) => {
     try {
         const pageConnection = await PageConnection.findByIdAndDelete(req.params.id);

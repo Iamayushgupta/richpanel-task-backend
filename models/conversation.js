@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Schema of conversation that will be stored in the database
 const messageSchema = new mongoose.Schema({
     senderId: String,
     messageText: String,

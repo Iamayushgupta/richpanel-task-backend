@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const Conversation = require('../models/Conversation');
+const Conversation = require('../models/conversation');
 
+// Getting the conversations for a page from its pageId
 router.get('/conversations/:pageId', async (req, res) => {
     try {
         const conversations = await Conversation.find({ pageId: req.params.pageId });
@@ -10,6 +11,7 @@ router.get('/conversations/:pageId', async (req, res) => {
     }
 });
 
+// Replying to a conversation
 router.post('/conversations/reply/:conversationId', async (req, res) => {
     const { messageText } = req.body;
     try {
